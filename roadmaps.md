@@ -16,13 +16,13 @@
 ## Phase 2: Views and URLs
 > *Learn how Django handles web page requests by creating views and mapping them to URLs, understanding request/response cycles, and managing error handling.*
 
-- [ ] Create basic views
-- [ ] Map views to URLs
-- [ ] Implement view logic
-- [ ] Work with HTTP requests and responses
-- [ ] Learn URL patterns and parameter mapping
-- [ ] Use regular expressions in URLs
-- [ ] Handle errors in views/URLs
+- [x] Create basic views
+- [x] Map views to URLs
+- [x] Implement view logic
+- [x] Work with HTTP requests and responses
+- [x] Learn URL patterns and parameter mapping
+- [x] Use regular expressions in URLs
+- [x] Handle errors in views/URLs
 
 ## Phase 3: Templates, Debugging, and Testing
 > *Master the presentation layer using Django Templates, template language, and inheritance. Learn to debug effectively and test your Django projects.*
