@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.hello_world', # Custom app for the hello world example
     'apps.studentManager',
+    'apps.templatebox',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,31 @@
+<!-- templatebox/templates/demo.html -->
+{% extends 'base.html' %}
+
+{% block title %}Demo Page{% endblock %}
+
+{% block content %}
+<h2>Hello, {{ student }}!</h2>
+
+<p>Your marks: {{ marks }}</p>
+
+{% if marks > 90 %}
+  <p>You're doing amazing! ⭐</p>
+{% elif marks > 75 %}
+  <p>Keep pushing!</p>
+{% else %}
+  <p>Need improvement!</p>
+{% endif %}
+
+<h3>Your Topics:</h3>
+<ul>
+  {% for item in items %}
+    <li>{{ item }}</li>
+  {% empty %}
+    <li>No topics found.</li>
+  {% endfor %}
+</ul>
+
+{% if is_topper %}
+  <p>🏆 Topper of the class!</p>
+{% endif %}
+{% endblock %}
