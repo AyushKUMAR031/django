@@ -9,6 +9,7 @@
     - creating/updating products and records.
 
 - Types of Forms in Django
+
 | Type          | Description                                                                                  |
 |---------------|----------------------------------------------------------------------------------------------|
 | Django Forms  | Python classes using `forms.Form` or `forms.ModelForm` for powerful form logic and validations |
@@ -111,3 +112,39 @@ def submit_view(request):
 * PRG stands for `Post-Redirect-Get`.
 * It is a pattern used to prevent duplicate form submissions.
 * After a form POST, if you reload the page, the data can be resubmitted (bad for things like transactions).
+
+```python
+
+from django.shortcuts import redirect
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Save or send email
+            return redirect('thank_you')  # ✅ Redirect after POST
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
+
+```
+
+### 6. Data Validation with Django Forms
+
+* why validation ?
+    - so that user don't enter invalid data (letters in a phone number).
+    - required fields aren't left empty.
+    - data follows a specific rule (like email format, password strength).
+
+* Django features in this ..
+    - Django has `built-in validation`. (like EmailField -> checks email format)
+    ```python
+        email = forms.EmailField(required=True)
+    ```
+    - and provides `custom validation`. (like clean_<field>() -> custom task via this mehtod)  
+
+* in dj, validation happens automatically when u call:
+    ```python
+        form.is_valid()
+    ```
+
