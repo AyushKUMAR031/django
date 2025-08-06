@@ -27,20 +27,20 @@
 ## Phase 3: Templates, Debugging, and Testing
 > *Master the presentation layer using Django Templates, template language, and inheritance. Learn to debug effectively and test your Django projects.*
 
-- [ ] Introduction to Django Templates
-- [ ] Create and render templates
-- [ ] Use Django Template Language (DTL)
-- [ ] Use template tags and variables
-- [ ] Implement for loops and if-else statements in templates
-- [ ] Make templates dynamic
-- [ ] Use template inheritance (extends, blocks)
-- [ ] Debug Django applications
+- [x] Introduction to Django Templates
+- [x] Create and render templates
+- [x] Use Django Template Language (DTL)
+- [x] Use template tags and variables
+- [x] Implement for loops and if-else statements in templates
+- [x] Make templates dynamic
+- [x] Use template inheritance (extends, blocks)
+- [x] Debug Django applications
 - [ ] Write and run Django tests
 
 ## Phase 4: Forms in Django
 > *Build user-friendly forms for data input, leverage Django’s form handling and validation, and understand web security using CSRF protection.*
 
-- [ ] Introduction to Django Forms
+- [x] Introduction to Django Forms
 - [ ] Handle GET, POST and HTTP methods
 - [ ] Build and process forms
 - [ ] Understand CSRF and Django’s CSRF protection
