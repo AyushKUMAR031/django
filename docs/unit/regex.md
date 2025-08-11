@@ -79,3 +79,16 @@ from . import views
 urlpatterns = [
     re_path(r'^article/(?P<year>[0-9]{4})/$', views.article_by_year),
 ]
+```
+
+### 6. regex method
+| Method                           | Description                                                   | Example                                                              | Output                 |
+| -------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------- |
+| `re.match(pattern, string)`      | Matches **only at the start** of the string.                  | `re.match(r'\d+', '123abc').group()`                                 | `'123'`                |
+| `re.search(pattern, string)`     | Scans the **entire string** for the **first** match.          | `re.search(r'\d+', 'abc 123 xyz').group()`                           | `'123'`                |
+| `re.findall(pattern, string)`    | Returns **all non-overlapping** matches as a list of strings. | `re.findall(r'\d+', '12 drummers, 11 pipers')`                       | `['12', '11']`         |
+| `re.finditer(pattern, string)`   | Returns an **iterator** yielding match objects.               | `[m.group() for m in re.finditer(r'\d+', '12 drummers, 11 pipers')]` | `['12', '11']`         |
+| `re.fullmatch(pattern, string)`  | Matches if the **entire string** matches the pattern.         | `re.fullmatch(r'\d+', '123')`                                        | Match object           |
+| `re.split(pattern, string)`      | Splits string by pattern matches.                             | `re.split(r'[;,\s]\s*', 'a, b; c  d')`                               | `['a', 'b', 'c', 'd']` |
+| `re.sub(pattern, repl, string)`  | Replaces matches with `repl`.                                 | `re.sub(r'\d+', '#', '123 and 456')`                                 | `'# and #'`            |
+| `re.subn(pattern, repl, string)` | Same as `sub` but also returns **number of replacements**.    | `re.subn(r'\d+', '#', '123 and 456')`                                | `('# and #', 2)`       |

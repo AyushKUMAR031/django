@@ -39,6 +39,19 @@ def get_api_data(request,id):
         return render(request, 'error.html', {'message': 'Failed to retrieve API data.'})
 
 
-#Q9 - user-profile
+#Q9 - regex
 def user_profile(request,uname):
     return HttpResponse(f"User Profile of: {uname}")
+
+def item_id(request, item_id):
+    return HttpResponse(f"Item ID: {item_id}")
+
+def empname(request, name):
+    return HttpResponse(f"Employee Name: {name}")
+
+def gender(request, gender):
+    return HttpResponse(f'Customer Gender: {gender}');
+
+
+def password(request, password ):
+    return HttpResponse(f'Password: {password}')
