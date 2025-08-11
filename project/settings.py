@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'apps.hello_world', # Custom app for the hello world example
     'apps.studentManager',
     'apps.templatebox',
+    'apps.trialClass',
 ]
 
 MIDDLEWARE = [

@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('apps.hello_world.urls')),
     path('', include('apps.studentManager.urls')),
     path('', include('apps.templatebox.urls')),
+    path('', include('apps.trialClass.urls')),
 ]
 
 # custom error handler
