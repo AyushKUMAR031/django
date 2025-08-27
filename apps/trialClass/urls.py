@@ -2,6 +2,8 @@ from django.urls import path
 from django.urls import re_path # re_path is used for more complex URL patterns mostly for regex matching
 from . import views
 
+app_name = 'trialClass'
+
 urlpatterns = [
     path('calculate/<str:operation>/<int:value1>/<int:value2>/', views.calculate, name='calculate'),
     path('get_api_data/<int:id>/', views.get_api_data, name='get_api_data'),
@@ -24,4 +26,10 @@ urlpatterns = [
     re_path(r'^gender/(?P<gender>male|female)/?$', views.gender, name='customer_gender'), # | -> matches either (or like thing)
 
     # re_path(r'^password/(?P<password>[])/?$', views.password, name='password'),  
+
+    path('', views.trialbase, name='trialbase'),
+    path('home/', views.homepage, name='home'),
+    path('about/', views.aboutpage, name='about'),
+    path('contact/', views.contactpage, name='contact'),
+    path('product/', views.productpage, name='product'),
 ]

@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w7)zogp0$m!cee(dyg@7ck9s618l@uyynh=2=m+n1n_*jk%+-3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False # required to show custom 404 page
+DEBUG = True # required to show custom 404 page
 
 ALLOWED_HOSTS = ['*']
 

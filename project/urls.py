@@ -20,9 +20,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.hello_world.urls')),
-    path('', include('apps.studentManager.urls')),
-    path('', include('apps.templatebox.urls')),
-    path('', include('apps.trialClass.urls')),
+    path('trial/', include('apps.trialClass.urls')),
+    path('student/', include('apps.studentManager.urls')),
+    path('template/', include('apps.templatebox.urls')),
 ]
 
 # custom error handler

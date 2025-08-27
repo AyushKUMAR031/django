@@ -22,9 +22,9 @@ def calculate(request,operation,value1,value2):
     elif operation == 'multiply':
         result = value1 * value2
     elif operation == 'divide':
-        result = value1 / value2
         if value2 == 0:
             return render(request, 'error.html', {'message': 'Division by zero is not allowed.'})
+        result = value1 / value2
     return render(request, 'result.html', {'result': result})
 
 
@@ -55,3 +55,20 @@ def gender(request, gender):
 
 def password(request, password ):
     return HttpResponse(f'Password: {password}')
+
+
+def trialbase(request):
+    return render(request, 'trialbase.html')
+
+def homepage(request):
+    return render(request, 'homepage.html')
+
+def aboutpage(request):
+    return render(request, 'aboutpage.html')
+
+def contactpage(request):
+    return render(request, 'contactpage.html')
+
+def productpage(request):
+    return render(request, 'productpage.html')
+
