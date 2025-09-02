@@ -114,12 +114,12 @@ In Django, a project is a collection of applications (or "apps"). An app is a we
     This will create a new directory named `myapp` with the following files:
 
     - `__init__.py`: Marks the directory as a Python package.
-    - `admin.py`: Configuration for the Django admin interface.
+    - `admin.py`: Configuration for the Django admin interface. This is where you register your models to be managed by Django's built-in admin interface.
     - `apps.py`: Configuration for the application itself.
-    - `models.py`: Where you define your application's database models.
+    - `models.py`: Where you define your application's database models. Each model corresponds to a database table.
     - `tests.py`: Where you write your tests.
     - `views.py`: Where you write your application's views (the logic that handles requests and returns responses).
-    - `migrations/`: A directory that stores database migration files.
+    - `migrations/`: A directory that stores database migration files. This directory contains database migration files. Migrations are Django's way of propagating changes you make to your models (adding a field, deleting a model, etc.) into your database schema.
 
 3.  **Install the app:**
     For your project to know about the new app, you need to add it to the `INSTALLED_APPS` list in your project's `settings.py` file.

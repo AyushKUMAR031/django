@@ -242,10 +242,4 @@ def custom_500_view(request):
 ```
 To trigger these custom views in production, you must set `DEBUG = False` in your `settings.py`.
 
-
-
----
-### 🔹 Go with the studentManager app
-- `Why?`
-    - Its a mini Django project that helps you apply all the core concepts from Unit II: Views and URLs.
 ---

@@ -21,9 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.hello_world.urls')),
     path('trial/', include('apps.trialClass.urls')),
-    path('student/', include('apps.studentManager.urls')),
-    path('template/', include('apps.templatebox.urls')),
 ]
 
-# custom error handler
-handler404 = 'apps.studentManager.views.custom_404'
+# Custom error handlers
+handler404 = 'apps.hello_world.views.custom_404'
+handler500 = 'apps.hello_world.views.custom_500'
