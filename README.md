@@ -22,5 +22,4 @@ Structured and simplified notes for learning Django.
 
 - [Overview](./docs/overview.md)
 - [Getting Started](./docs/getting-started.md)
-- [Project Structure](./docs/project-structure.md)
 - [Roadmap](./roadmaps.md)
