@@ -1,0 +1,38 @@
+{% extends "navbar.html" %}
+
+{% block style %}
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        background-color: #eec8c8ff;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(4, 4, 4, 0.1);
+    }
+    b {
+        color: #000000ff;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+{% endblock style %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Guest Book Entries </h1>
+        {% if entries %}
+            <ul>
+                {% for entry in entries %}
+                    <li><b>Messager:</b> <strong>{{ entry.name }}</strong> | <b>Title:</b> {{ entry.title }} | <b>Click to See :</b> 
+                        <a href="{% url 'guestBook-message' entry.id %}">View Message</a>
+                    </li>
+                {% endfor %}
+        {% else %}
+            <p>No entries yet.</p>
+        {% endif %}
+    </div>
+
+{% endblock content %}

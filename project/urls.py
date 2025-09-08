@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.hello_world.urls')),
     path('trial/', include('apps.trialClass.urls')),
+    path('guestbook/', include('apps.guestBook.urls')),
 ]
 
 # Custom error handlers

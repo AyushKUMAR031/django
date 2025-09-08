@@ -204,7 +204,67 @@ DEBUG = True
 ```python
 import pdb; pdb.set_trace()
 ```
+  * **A Quick Overview of PDB**
+    ---
 
+      * **How `pdb.set_trace()` works**
+          * You import `pdb` in your view (or any Python file).
+          * Add `pdb.set_trace()` where you want the code to pause.
+          * When that line is hit, Django’s runserver process will pause and open the Python Debugger in the terminal.
+          * You can then run commands like:
+
+            * `n` → go to next line
+            * `c` → continue execution
+            * `p variable` → print the value of a variable
+            * `q` → quit debugger
+
+      * **Example in Django View**
+        Suppose you have a view that processes a form:
+
+          ```python
+          from django.http import HttpResponse
+          import pdb
+
+          def my_view(request):
+              name = request.GET.get("name", "Guest")
+              age = request.GET.get("age", None)
+
+              pdb.set_trace()  # Debugger stops here
+
+              if age:
+                  return HttpResponse(f"Hello {name}, you are {age} years old.")
+              return HttpResponse(f"Hello {name}")
+          ```
+
+          ---
+
+      * **How to test**
+
+        1. Run the server:
+
+          ```bash
+          python manage.py runserver
+          ```
+        2. Visit:
+
+          ```
+          http://127.0.0.1:8000/my_view/?name=Ayush&age=21
+          ```
+        3. In your terminal, Django will **pause at `pdb.set_trace()`**.
+          You’ll see something like:
+
+          ```
+          > .../views.py(8)my_view()
+          -> if age:
+          (Pdb)
+          ```
+        4. Now you can try:
+
+          * `p name` → prints `"Ayush"`
+          * `p age` → prints `"21"`
+          * `n` → goes to next line
+          * `c` → continues execution
+    ---
 ---
 
 ### 🧠 10. Testing in Django

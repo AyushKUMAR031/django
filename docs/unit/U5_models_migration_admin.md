@@ -1,21 +1,5 @@
 # Unit 5: Models, Migrations, and Django Admin
 
-*Delve into the database layer—define models, perform database migrations, manage data with the ORM, and use Django’s powerful admin interface.*
-
-- [ ] Create Django models
-- [ ] Work with migrations
-- [ ] Use the Django shell (Insert, Update, Delete)
-- [ ] Understand Django ORM basics
-- [ ] Define and use foreign keys in models
-- [ ] Use the Django Admin interface
-- [ ] Add groups and users via Admin
-- [ ] Set up user permissions in Admin
-- [ ] Configure and set up the database
-
----
-
-## Notes
-
 ### 1. Create Django Models
 
 A Django model is a Python class that represents a database table. It's the single, definitive source of information about your data.
@@ -44,7 +28,7 @@ Migrations are Django's way of propagating changes you make to your models into 
 -   **Creating Migrations:**
     -   Run `python manage.py makemigrations` to create new migration files based on the changes in your models.
 -   **Applying Migrations:**
-    -   Run `python manage.py migrate` to apply the migrations to your database.
+    -   Run `python manage.py migrate` to apply the migrations to your database. [stored in migrations folder inside the app]
 -   **Viewing SQL:**
     -   Run `python manage.py sqlmigrate <app_name> <migration_name>` to see the SQL statements for a migration.
 -   **Listing Migrations:**

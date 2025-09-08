@@ -41,11 +41,11 @@
 > *Build user-friendly forms for data input, leverage Django’s form handling and validation, and understand web security using CSRF protection.*
 
 - [x] Introduction to Django Forms
-- [ ] Handle GET, POST and HTTP methods
-- [ ] Build and process forms
-- [ ] Understand CSRF and Django’s CSRF protection
-- [ ] Implement POST-redirect pattern
-- [ ] Validate data with Django forms
+- [x] Handle GET, POST and HTTP methods
+- [x] Build and process forms
+- [x] Understand CSRF and Django’s CSRF protection
+- [x] Implement POST-redirect pattern
+- [x] Validate data with Django forms
 
 ## Phase 5: Models, Migrations, and Django Admin
 > *Delve into the database layer—define models, perform database migrations, manage data with the ORM, and use Django’s powerful admin interface.*

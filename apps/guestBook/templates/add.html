@@ -1,0 +1,56 @@
+{% extends "navbar.html" %}
+
+{% block style %}
+    form {
+        background-color: #eec8c8ff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(4, 4, 4, 0.1);
+    }
+    input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #55e3e8ff;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        background-color: #1463b2ff;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #006da3ff;
+    }
+{% endblock style %}
+
+{% block content %}
+    <div class="content-container">
+        <h1>Add a message</h1>
+
+        {% if success %}
+            <p style="color: green; font-weight: bold;">✅ Your message was added successfully!</p>
+        {% endif %}
+
+        {% if error %}
+            <p style="color: red; font-weight: bold;">⚠ {{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="{% url 'guestBook-add' %}">
+            {% csrf_token %}
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+{% endblock content %}
+

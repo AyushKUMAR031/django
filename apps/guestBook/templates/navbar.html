@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guest Book | Itachi</title>
+    <style>
+        body {
+            font-family: monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #ebdfd2ff;
+            color: #282727ff;
+        }
+        nav {
+            background-color: #1f2021ff;
+            font-size: 18px;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+            color : #00aaffff;
+            background-color: #e8e1e1ff;
+        }
+
+        h1 {
+            color: #1463b2ff;
+        }
+        a {
+            color: #1463b2ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .content-container {
+            display: flex;
+            justify-content: center;   
+            align-items: center;
+            height: 80vh;              
+            flex-direction: column;    
+            text-align: center;
+        }
+
+        {% block style %}
+
+        {% endblock style %}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/guestbook/">Home</a>
+        <a href="/guestbook/add">Add Entry</a>
+        <a href="/guestbook/entries">View Entries</a>
+    </nav>
+
+    {% block content %}
+
+    {% endblock content %}
+</body>
+</html>

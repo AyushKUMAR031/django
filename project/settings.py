@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.hello_world', # Custom app for the hello world example.
     'apps.trialClass',  # custom for class trials.
+    'apps.guestBook',   # practice app
 ]
 
 MIDDLEWARE = [
