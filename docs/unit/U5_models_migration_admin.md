@@ -55,17 +55,35 @@ The Django shell is an interactive Python console for your Django project.
 
         # Filter students
         students = Student.objects.filter(last_name='Doe')
+        students = Student.objects.filter(age__gte=18)
 
         # Get a single student
         student = Student.objects.get(id=1)
 
         # Delete a student
         student.delete()
+
+        from django.utils import timezone
+        print(timezone.now())
         ```
+        ```bash
+        # how shell looks
+        >>> students = Student.objects.all()
+        >>> students
+        <QuerySet [<Student: Ayush (21)>, <Student: Itachi (22)>]>
+
+        >>> for s in students:
+        ...     print(s.name)
+        ...
+        ```
+    - **how do shell get to know enter is for next line or run ?** -> Python REPL rules -> Read–Eval–Print–Loop
 
 ### 4. Understand Django ORM Basics
 
-The Object-Relational Mapper (ORM) allows you to interact with your database using Python code instead of SQL.
+- The Object-Relational Mapper (ORM) allows you to interact with your database using Python code instead of SQL.
+- In Django, ORM connects your models (Python classes) to your database tables.
+
+- ORM 
 
 -   **Querying Data:**
     -   `all()`: Retrieve all objects.
@@ -73,9 +91,17 @@ The Object-Relational Mapper (ORM) allows you to interact with your database usi
     -   `get()`: Retrieve a single object.
 -   **Lazy Evaluation:** QuerySets are lazy. They don't hit the database until they are evaluated.
 
+-   **QuerySet filters (very powerful)**
+    - `exact` → Student.objects.filter(name__exact="Ayush")
+    - `contains` → Student.objects.filter(name__contains="it")
+    - `gt / gte` → greater than / greater or equal
+    - `lt / lte` → less than / less or equal
+    - `in` → Student.objects.filter(age__in=[18, 21, 25])
+    - `startswith / endswith`
+
 ### 5. Define and Use Foreign Keys in Models
 
-A `ForeignKey` creates a many-to-one relationship between models.
+A `ForeignKey` creates a `many-to-one relationship` between models.
 
 -   **Defining a Foreign Key:**
     -   Use `models.ForeignKey` in your model.
@@ -90,18 +116,30 @@ A `ForeignKey` creates a many-to-one relationship between models.
 
         class Enrollment(models.Model):
             student = models.ForeignKey(Student, on_delete=models.CASCADE)
-            course = models.ForeignKey(Course, on_delete=models.CASCADE)
+            course = models.ForeignKey(Course`actual classes name`, on_delete=models.CASCADE)
+        ```
+
+    - 3. Common on_delete options
+        - `CASCADE` → delete related rows too.
+        - `SET_NULL` → set the field to NULL if parent is deleted (requires null=True).
+        - `PROTECT` → prevent deletion if related objects exist.
+        - `DO_NOTHING` → do nothing (might cause database errors).
+
+        ```python
+        t1.student_set.all() #this student_set is predefined : for `all Student objects that point to this Teacher.`
+        # <QuerySet [<Student: Ayush>, <Student: Itachi>]>
         ```
 
 ### 6. Use the Django Admin Interface
 
-Django provides a built-in admin interface for managing your site's content.
+- Django provides a built-in admin interface for managing your site's content.
+- It lets you manage your database (add,edit,delete records) through a web UI,without writing SQL
 
 -   **Enabling the Admin:**
     -   Ensure `'django.contrib.admin'` is in `INSTALLED_APPS`.
     -   Include the admin URLs in your project's `urls.py`.
 -   **Registering Models:**
-    -   Register your models in your app's `admin.py` file to make them editable in the admin.
+    -   Register your models in your app's `admin.py` file to make them editable in the admin. (in app directory)
     -   Example:
         ```python
         from django.contrib import admin
@@ -109,8 +147,26 @@ Django provides a built-in admin interface for managing your site's content.
 
         admin.site.register(Student)
         ```
+
+    
+-   **Setting Up Admin**
+        ```bash
+            (.venv) PS D:\master\PrimaryThings\DevBook\django> python manage.py createsuperuser
+            Username (leave blank to use 'hp'): Uchiha Itachi
+            Error: Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters.
+            Username (leave blank to use 'hp'): Uchiha_Itachi 
+            Email address: ayush@gmail.com
+            Password: 
+            Password (again): 
+            Superuser created successfully.
+        ```
+
+    
 -   **Customization:**
     -   You can customize the admin interface to control how your models are displayed.
+    - [see the page](./custom_admin_UI.md)
+
+
 
 ### 7. Add Groups and Users via Admin
 

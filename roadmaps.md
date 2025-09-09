@@ -50,15 +50,15 @@
 ## Phase 5: Models, Migrations, and Django Admin
 > *Delve into the database layer—define models, perform database migrations, manage data with the ORM, and use Django’s powerful admin interface.*
 
-- [ ] Create Django models
-- [ ] Work with migrations
-- [ ] Use the Django shell (Insert, Update, Delete)
-- [ ] Understand Django ORM basics
-- [ ] Define and use foreign keys in models
-- [ ] Use the Django Admin interface
-- [ ] Add groups and users via Admin
-- [ ] Set up user permissions in Admin
-- [ ] Configure and set up the database
+- [x] Create Django models
+- [x] Work with migrations
+- [x] Use the Django shell (Insert, Update, Delete)
+- [x] Understand Django ORM basics
+- [x] Define and use foreign keys in models
+- [x] Use the Django Admin interface
+- [x] Add groups and users via Admin
+- [x] Set up user permissions in Admin
+- [x] Configure and set up the database
 
 ## Phase 6: Cookies, Sessions, and Authentication
 > *Implement user authentication systems, handle user sessions and cookies, and manage login/logout to make your app secure and user-centric.*
