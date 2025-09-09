@@ -21,6 +21,8 @@ A Django model is a Python class that represents a database table. It's the sing
 -   **Registering the App:**
     -   To include the app in your project, add its configuration class to the `INSTALLED_APPS` list in your project's `settings.py`.
 
+---
+
 ### 2. Work with Migrations
 
 Migrations are Django's way of propagating changes you make to your models into your database schema.
@@ -33,6 +35,8 @@ Migrations are Django's way of propagating changes you make to your models into 
     -   Run `python manage.py sqlmigrate <app_name> <migration_name>` to see the SQL statements for a migration.
 -   **Listing Migrations:**
     -   Run `python manage.py showmigrations` to see all migrations and their status.
+
+---
 
 ### 3. Use the Django Shell
 
@@ -78,6 +82,8 @@ The Django shell is an interactive Python console for your Django project.
         ```
     - **how do shell get to know enter is for next line or run ?** -> Python REPL rules -> Read–Eval–Print–Loop
 
+---
+
 ### 4. Understand Django ORM Basics
 
 - The Object-Relational Mapper (ORM) allows you to interact with your database using Python code instead of SQL.
@@ -98,6 +104,8 @@ The Django shell is an interactive Python console for your Django project.
     - `lt / lte` → less than / less or equal
     - `in` → Student.objects.filter(age__in=[18, 21, 25])
     - `startswith / endswith`
+
+---
 
 ### 5. Define and Use Foreign Keys in Models
 
@@ -129,6 +137,8 @@ A `ForeignKey` creates a `many-to-one relationship` between models.
         t1.student_set.all() #this student_set is predefined : for `all Student objects that point to this Teacher.`
         # <QuerySet [<Student: Ayush>, <Student: Itachi>]>
         ```
+
+---
 
 ### 6. Use the Django Admin Interface
 
@@ -166,7 +176,7 @@ A `ForeignKey` creates a `many-to-one relationship` between models.
     -   You can customize the admin interface to control how your models are displayed.
     - [see the page](./custom_admin_UI.md)
 
-
+---
 
 ### 7. Add Groups and Users via Admin
 
@@ -191,3 +201,5 @@ Django has a built-in permission system.
     -   Django supports SQLite, PostgreSQL, MySQL, and Oracle.
 -   **Applying Initial Migrations:**
     -   Run `python manage.py migrate` to create the necessary tables for Django's built-in apps.
+
+---
