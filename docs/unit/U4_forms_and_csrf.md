@@ -191,7 +191,7 @@ def submit_view(request):
 
 ### 5. POST redirect in Django (PRG Pattern)
 
-* PRG stands for `Post-Redirect-Get`.
+* PRG stands for `Post-Redirect-Get`, to solve the `Post-redirect-refresh pattern`.
 * It is a pattern used to prevent duplicate form submissions.
 * After a form POST, if you reload the page, the data can be resubmitted (bad for things like transactions).
 

@@ -2,7 +2,7 @@
 
 ### 1. Create Django Models
 
-A Django model is a Python class that represents a database table. It's the single, definitive source of information about your data.
+A Django model is a `Python class` that represents a database table. It's the single, definitive source of information about your data.
 
 -   **Defining a Model:**
     -   Models are defined in your app's `models.py` file.
@@ -17,10 +17,6 @@ A Django model is a Python class that represents a database table. It's the sing
             last_name = models.CharField(max_length=30)
             email = models.EmailField()
         ```
-
--   **Registering the App:**
-    -   To include the app in your project, add its configuration class to the `INSTALLED_APPS` list in your project's `settings.py`.
-
 ---
 
 ### 2. Work with Migrations
@@ -53,9 +49,16 @@ The Django shell is an interactive Python console for your Django project.
         # Create a new student
         student = Student(first_name='John', last_name='Doe', email='john.doe@example.com')
         student.save()
+            # or
+        Student.objects.create(first_name='ayush', last_name='Kumar', email='jadoo@gmail.com')
 
         # Get all students
-        students = Student.objects.all()
+        Student.objects.all()
+
+        #update
+        s = Student.objects.get(pk=2)
+        s.marks = 100
+        s.save()
 
         # Filter students
         students = Student.objects.filter(last_name='Doe')
@@ -203,3 +206,49 @@ Django has a built-in permission system.
     -   Run `python manage.py migrate` to create the necessary tables for Django's built-in apps.
 
 ---
+
+**Doing via shell**
+```python
+    #creating user
+    >>> from django.contrib.auth.models import User
+    >>> user = User.objects.create_user(username='nav', email='nav@gmail.com', password='123') 
+    >>> user.save()
+
+    #permissions
+    >>> from django.contrib.auth.models import User, Permission
+    >>> from django.contrib.contenttypes.models import ContentType
+    >>> from myapp.models import Employee
+    >>> user = User.objects.get(username='nav')
+    >>> content_type = ContentType.objects.get_for_model(Employee)
+    >>> view_permission = Premission.objects.get(codename='view_employee',content_type=content_type)
+    >>> user.user_permission.add(view_permission)
+    >>> exit()
+
+    for seeing models in admin UI with proper things and not object
+
+    add models to admin.py
+    then add a code in models
+    like def __str__(self):
+        return f'{self.name}{self.email}{self.pass}{self.age}'
+```
+
+
+* for seeing this from normal user pov in admin UI (controlled data show by admin), we need to add the normal user as a  staff by the admin. so that, that user can access admin UI.
+
+```python
+    # bass ab woi group bhi wasie hi
+    >>> from django.contrib.auth.models import Group
+    >>> group = Group(name='newgroup')
+    >>> group.save()
+
+    # to see
+    >>> Group.objects.all()
+
+    # for permission
+    >>> from django.contrib.auth.models import Group, Permission
+    >>> from django.contrib.contenttypes.models import ContentType
+    >>> from myapp.models import Employee
+    >>>
+    >>>
+```
+
